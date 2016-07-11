@@ -7,7 +7,7 @@ url: "https://ctfysh.github.io" # the base hostname & protocol for your site
 github_username:  ctfysh
 permalink: /:year/:month/:day/:title.html
 # highlighter:  rouge (on my Mac, need to set this to rouge or flas with Jekyll 3.0)
-author:  Homer White
+author:  Tiger
 
 baseurl: "/" # the sub-path of your proejct site, e.g. /myProject/
              # or "/" for user site
@@ -20,8 +20,8 @@ disqus:           true
 shortname:        ctfysh
 
 # Social Media
-twitter:          true # add a twitter button to each post
-facebook:         true # add a facebook share button to each post
+twitter:          false # add a twitter button to each post
+facebook:         false # add a facebook share button to each post
 
 # Build settings
 
