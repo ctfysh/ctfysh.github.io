@@ -7,6 +7,9 @@ categories: [R]
 published:  true
 ---
 
+* will be replaced by TOC
+{:toc}
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
