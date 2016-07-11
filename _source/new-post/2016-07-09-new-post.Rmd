@@ -1,0 +1,14 @@
+---
+layout: post
+title:  new post
+date: "`r Sys.time()`"
+published: true
+tags: [example1, example2]
+categories: ["post"]
+---
+
+Your markdown here!
+
+```{r}
+plot(1:10)
+```
