@@ -30,3 +30,12 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Math
+
+You can write inline formula like this $$x^2+y^2=r^2$$ and displayed formula like
+
+$$\begin{cases}
+X_{i}=\sum_{i=1}^{h}w_{i}^{\prime}/\sum_{i=1}^{n}w_{i}^{\prime}\\
+Y_{i}=\sum_{i=1}^{h}x_{i}^{\prime}/\sum_{i=1}^{n}x_{i}^{\prime}
+\end{cases}$$
