@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  new post
+comments:  true
 date: "`r Sys.time()`"
-published: true
-tags: [example1, example2]
-categories: ["post"]
+categories: [R]
+published:  true
 ---
 
 Your markdown here!
