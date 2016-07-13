@@ -24,9 +24,9 @@ p img {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  border-style:  ridge;
-  border-color:  teal;
-  border-width:  thick;
+  border-style:  solid;
+  border-color:  grey;
+  border-width:  thin;
   padding:  5px 5px 5px 5px;
 }
 
@@ -39,7 +39,7 @@ td {
 }
 
 table, td, th {
-  border:1px solid green;
+  border:1px solid grey;
 }
 
 th {
