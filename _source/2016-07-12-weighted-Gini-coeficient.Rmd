@@ -107,8 +107,9 @@ kable(d)
 按照Gini系数的定义，我们首先还是得刻画Lorenz曲线，即确定函数$$F(x)$$和$$L(x)$$。需要明确的是$$x$$的含义，我们的任务不是分析不同团体总收入的分配公平性问题，而是不同团体中每个人的收入的分配公平性问题，那么$$x$$表示的不是团体总收入，而是团体的人均收入。假设第$$i$$个团体总收入为$$z_i$$，其人口数为$$w_i$$，那么人均收入$$x_i=z_i/w_i$$。为了计算$$F(x)$$，我们先对$$x_i$$按照从小到大的顺序进行排序，得到$$x_１^\prime,x_2^\prime,\cdots,x_n^\prime$$，并且令$$x_0^\prime=0$$，$$F(x_0^\prime)=0$$和$$L(x_0^\prime)=0$$。这样同时可以得到$$z_i$$和$$w_i$$的排序值$$z_i^\prime$$和$$w_i^\prime$$。那么，我们很容易得到
 
 $$\begin{cases}
-F(x_{h}^{\prime})=\sum_{i=0}^{h}w_{i}^{\prime}/\sum_{i=0}^{n}w_{i}^{\prime}\\
-L(x_{h}^{\prime})=\sum_{i=0}^{h}w_{i}^{\prime}x_{i}^{\prime}/\sum_{i=0}^{n}w_{i}^{\prime}x_{i}^{\prime}=\sum_{i=0}^{h}z_{i}^{\prime}/\sum_{i=0}^{n}z_{i}^{\prime}
+F(x_{h}^{\prime}) & =\sum_{i=0}^{h}w_{i}^{\prime}/\sum_{i=0}^{n}w_{i}^{\prime}\\
+L(x_{h}^{\prime}) & =\sum_{i=0}^{h}w_{i}^{\prime}x_{i}^{\prime}/\sum_{i=0}^{n}w_{i}^{\prime}x_{i}^{\prime}\\
+ & =\sum_{i=0}^{h}z_{i}^{\prime}/\sum_{i=0}^{n}z_{i}^{\prime}
 \end{cases}$$
 
 这里$$h=0,1,\cdots,n$$。这时绘制出来的Lorenz曲线如下所示：
