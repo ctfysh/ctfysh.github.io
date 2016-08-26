@@ -1,0 +1,9 @@
+# Ignore docs files
+.gitgnore
+.Rhistory
+.Rdata
+
+
+# Folders to ignore
+.Rproj.user
+_site
