@@ -1,0 +1,20 @@
+概率分布,DIST参数,分布参数P1、P2、P3的含义
+β分布,beta,"shape1, shape2, ncp"
+二项式分布,binom,"size, prob"
+Cauchy分布,cauchy,"location, scale"
+卡方分布,chisq,"df, ncp"
+指数分布,exp,rate
+F分布,f,"df1, df1, ncp"
+Γ分布,gamma,"shape, scale"
+几何分布,geom,prob
+超几何分布,hyper,"m, n, k"
+对数正态分布,lnorm,"meanlog, sdlog"
+logistic分布,logis,"location, scale"
+负二项式分布,nbinom,"size, prob"
+正态分布,norm,"mean, sd"
+Poisson分布,pois,lambda
+t分布,t,"df, ncp"
+均匀分布,unif,"min, max"
+Weibull分布,weibull,"shape, scale"
+Wilcoxon分布,wilcox,"m, n"
+无分布,none,DATA中的数值
