@@ -114,7 +114,7 @@ kable(result$result, digits = 3)
 
 ## 6 图形化界面
 
-由于sfc软件包是基于R开发的，所以对于非R用户则不容易使用。为此，我们给予shiny平台，开发了一个sfc的图形化界面。界面的链接为[https://ctfysh.shinyapps.io/sample_app/](https://ctfysh.shinyapps.io/sample_app/)。
+由于sfc软件包是基于R开发的，所以对于非R用户则不容易使用。为此，我们基于shiny平台，开发了一个sfc的图形化界面。界面的链接为[https://ctfysh.shinyapps.io/sample_app/](https://ctfysh.shinyapps.io/sample_app/)。
 非R用户只需要知道[数据文件](#data)和简化版的[模型文件](#model)如何整理即可使用这个平台进行计算。这也说明了，如何有效管理我们核算数据，以及我们核算方法，是物质流核算关键之所在。至于如何计算，以及在什么平台上，用什么软件来计算，这些都是次要的。而sfc软件包的最大突破口，恰好是建立在对数据与模型的分开管理上的。至于核算本身，未来还有很多问题等着我们去解决，需要大家共同的努力。
 
 
