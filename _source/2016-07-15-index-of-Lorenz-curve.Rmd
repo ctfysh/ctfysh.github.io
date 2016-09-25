@@ -97,7 +97,7 @@ d1%>%ggplot()+geom_segment(
   theme_classic(base_size=20)+xlab("population")+ylab("income")
 ```
 
-难以想想以上两种计算方法竟然是等效的。下面就对这种等效性进行说明。从“[对加权Gini系数的理解]({% post_url 2016-07-12-weighted-Gini-coeficient %})”中我们知道$$F(x_{h}^{\prime})=\sum_{i=0}^{h}w_{i}^{\prime}/\sum_{i=0}^{n}w_{i}^{\prime}$$和
+难以想象以上两种计算方法竟然是等效的。下面就对这种等效性进行说明。从“[对加权Gini系数的理解]({% post_url 2016-07-12-weighted-Gini-coeficient %})”中我们知道$$F(x_{h}^{\prime})=\sum_{i=0}^{h}w_{i}^{\prime}/\sum_{i=0}^{n}w_{i}^{\prime}$$和
 $$L(x_{h}^{\prime})=\sum_{i=0}^{h}z_{i}^{\prime}/\sum_{i=0}^{n}z_{i}^{\prime}$$，并且有$$z_{i-1}^{\prime}/w_{i-1}^{\prime}<z_{i}^{\prime}/w_{i}^{\prime}$$，同时，我们假设Lorenz曲线上第$$i$$个点与第$$i-1$$个点的连线的斜率为$$k_i$$，那么有
 
 $$k_i=\dfrac{z_{i}^{\prime}/\sum_{i=0}^{n}z_{i}^{\prime}}{w_{i}^{\prime}/\sum_{i=0}^{n}w_{i}^{\prime}}$$
