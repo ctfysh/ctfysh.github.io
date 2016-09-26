@@ -5,7 +5,7 @@ title:  Resume
 
 # 盛虎
 
-- 联系方式：E-mail: shenghu@nju.edu.com
+- 联系方式：E-mail: shenghu@nju.edu.cn
 - 通讯地址：南京市仙林大道163号南京大学仙林校区环境学院（210023）
 
 ## 教育经历
