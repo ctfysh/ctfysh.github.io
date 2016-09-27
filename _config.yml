@@ -17,7 +17,7 @@ baseurl: "/" # the sub-path of your proejct site, e.g. /myProject/
 homepostlimit:  4
 
 # Disqus comments:
-disqus:           true
+disqus:           false
 shortname:        ctfysh
 
 # Social Media
