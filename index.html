@@ -17,7 +17,7 @@ title: Home
     {% endif %}
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    {{ post.content }}
+    {{ post.content | strip_html | truncate:200 }}
   </div>
   {% endfor %}
 </div>
