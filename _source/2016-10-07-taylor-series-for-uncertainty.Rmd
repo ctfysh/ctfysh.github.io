@@ -1,0 +1,216 @@
+---
+layout: post
+comments:  true
+title: "基于泰勒展开的不确定性传递"
+date: 2016-10-07
+categories: [uncertainty]
+published:  true
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+opts_chunk$set(echo = F,
+               message = F,
+               warning = F)
+## mean of log-normal distribution
+lnmean <- function(mu, sigma) {
+  exp(mu + sigma ^ 2 / 2)
+}
+## variance of log-normal distribution
+lnvar <- function(mu, sigma) {
+  (exp(sigma ^ 2) - 1) * exp(2 * mu + sigma ^ 2)
+}
+```
+
+## 1 两个输入变量
+
+假设随机变量$$Z$$是随机变量$$X$$和随机变量$$Y$$的函数，函数关系如下
+
+$$Z=f(X,Y)$$
+
+其中$$X$$和$$Y$$的均值分别为$$\overline{X}$$和$$\overline{Y}$$，方差分别为$$D_{X}$$[^1]和$$D_{Y}$$，协方差为$$D_{XY}$$。对$$Z$$进行关于$$\overline{X}$$和$$\overline{Y}$$泰勒展开可以得到
+
+[^1]: $$D_{X}$$实际上是$$D_{XX}$$的简写。
+
+$$Z=f(\overline{X},\overline{Y})+f_{X}^{\prime}(\overline{X},\overline{Y})(X-\overline{X})+f_{Y}^{\prime}(\overline{X},\overline{Y})(Y-\overline{Y})+o(X,Y)$$
+
+如果忽略高阶项$$o(X,Y)$$，那么根据随机变量求和的期望和方差计算公式
+
+$$\mathbb{E}(X+Y)=\mathbb{E}(X)+\mathbb{E}(Y)$$
+
+和
+
+$$\text{var}(X+Y)=\text{var}(X)+\text{var}(Y)+2\text{cov}(X,Y)$$
+
+可以得到$$Z$$的期望值与方差值分别如下
+
+$$\overline{Z}=f(\overline{X},\overline{Y})$$
+
+和
+
+$$D_{Z}=f_{X}^{\prime}(\overline{X},\overline{Y})^{2}D_{X}+f_{Y}^{\prime}(\overline{X},\overline{Y})^{2}D_{Y}+2f_{X}^{\prime}(\overline{X},\overline{Y})f_{Y}^{\prime}(\overline{X},\overline{Y})D_{XY}$$
+
+如果我们对$$X$$、$$Y$$和$$Z$$取对数，那么理论上存在
+
+$$\ln Z=g(\ln X,\ln Y)$$
+
+根据泰勒展开公式，有
+
+$$\begin{align}
+\ln Z & =g(\overline{\ln X},\overline{\ln Y})+g_{\ln X}^{\prime}(\overline{\ln X},\overline{\ln Y})(\ln X-\overline{\ln X})+\nonumber \\
+ & g_{\ln Y}^{\prime}(\overline{\ln X},\overline{\ln Y})(\ln Y-\overline{\ln Y})+o(\overline{\ln X},\overline{\ln Y})
+\end{align}$$
+	
+其中
+
+$$g_{\ln X}^{\prime}=\dfrac{\partial\ln Z}{\partial\ln X}=\dfrac{\partial Z}{\partial X}/\dfrac{Z}{X}=S_{X}$$
+
+这里$$S_X$$表示参数$$X$$的相对敏感性系数。根据以上推导可以得到$$\ln Z$$的期望值与方差值分别如下
+
+$$\overline{\ln Z}=g(\overline{\ln X},\overline{\ln Y})$$
+
+和
+
+$$\begin{align}
+D_{\ln Z} & =S_{X}(\overline{X},\overline{Y})^{2}D_{\ln X}+S_{Y}(\overline{X},\overline{Y})^{2}D_{\ln Y}+\nonumber \\
+ & 2S_{X}(\overline{X},\overline{Y})S_{Y}(\overline{X},\overline{Y})D_{\ln X\ln Y}
+\end{align}$$
+
+## 2 多个输入变量
+
+对于更一般的情况，假设$$Z$$是变量$$X_{1},X_{2},\cdots,X_{n}$$的函数
+
+$$Z=f(X_{1},X_{2},\cdots,X_{n})$$
+
+同时有
+
+$$\ln Z=g(\ln X_{1},\ln X_{2},\cdots,\ln X_{n})$$
+
+那么$$Z$$的期望值与方差值分别如下
+
+$$\overline{Z}=f(\overline{X}_{1},\overline{X}_{2},\cdots,\overline{X}_{n})$$
+
+和
+
+$$\begin{align}
+D_{Z} & =\sum_{i=1}^{n}f_{X_{i}}^{\prime}(\overline{X}_{1},\overline{X}_{2},\cdots,\overline{X}_{n})^{2}D_{X_{i}}+\nonumber \\
+ & \sum_{i=1}^{n}\sum_{j=1}^{n}f_{X_{i}}^{\prime}(\overline{X}_{1},\overline{X}_{2},\cdots,\overline{X}_{n})f_{X_{j}}^{\prime}(\overline{X}_{1},\overline{X}_{2},\cdots,\overline{X}_{n})D_{X_{i}X_{j}}
+\end{align}$$
+	
+以及$$\ln Z$$的期望值与方差值分别如下
+
+$$\overline{\ln Z}=g(\overline{\ln X_{1}},\overline{\ln X_{2}},\cdots,\overline{\ln X_{n}})$$
+
+和
+
+$$\begin{align}
+D_{\ln Z} & =\sum_{i=1}^{n}S_{X_{i}}(\overline{X}_{1},\overline{X}_{2},\cdots,\overline{X}_{n})^{2}D_{\ln X_{i}}+\nonumber \\
+ & \sum_{i=1}^{n}\sum_{j=1}^{n}S_{X_{i}}(\overline{X}_{1},\overline{X}_{2},\cdots,\overline{X}_{n})S_{X_{j}}(\overline{X}_{1},\overline{X}_{2},\cdots,\overline{X}_{n})D_{\ln X_{i}\ln X_{j}}
+\end{align}$$
+
+## 3 举个例子
+
+假设随机变量$$Z$$与随机变量$$X$$和随机变量$$Y$$满足如下的函数关系
+
+$$Z=e^X\sin^2Y$$
+
+```{r persp_plot}
+x <- seq(0, 1, length.out = 20)
+y <- seq(0, pi, length.out = 20)
+f <- function(x, y) {
+  exp(x) * sin(y) ^ 2
+}
+z <- outer(x, y, f)
+persp(x, y, z, theta = 30, phi = 30, expand = 0.5,
+      col = "lightblue", xlab = "X", ylab = "Y", zlab = "Z")
+## parameters setting
+mu.x <- 0.5
+sigma.x <- 0.2
+mu.y <- 0.3
+sigma.y <- 0.1
+## parameters transformation
+mu.x.ln <- lnmean(mu.x, sigma.x)
+d.x.ln <- lnvar(mu.x, sigma.x)
+mu.y.ln <- lnmean(mu.y, sigma.y)
+d.y.ln <- lnvar(mu.y, sigma.y)
+## uncertainty propagation with Taylor series
+fx <- f
+fy <- function(x, y) {
+  2 * exp(x) * sin(y) * cos(y)
+}
+mu.z <- f(mu.x.ln, mu.y.ln)
+d.z <- fx(mu.x.ln, mu.y.ln) ^ 2 * d.x.ln +
+  fy(mu.x.ln, mu.y.ln) ^ 2 * d.y.ln
+## uncertainty propagation with monte carlo
+set.seed(12345)
+nsim <- 100000
+x.sim <- rlnorm(nsim, mu.x, sigma.x)
+y.sim <- rlnorm(nsim, mu.y, sigma.y)
+z.sim <- f(x.sim, y.sim)
+mu.z.sim <- mean(z.sim)
+d.z.sim <- var(z.sim)
+## propagate package for check
+# propagate::propagate(expression(exp(x) * sin(y) ^ 2),
+#                      cbind(x = c(mu.x.ln, sqrt(d.x.ln)),
+#                            y = c(mu.y.ln, sqrt(d.y.ln))),
+#                      type = "stat",
+#                      do.sim = TRUE)
+## sensitivity coefficients 
+Sx <- function(x, y) {
+  x * fx(x, y) / f(x, y)
+}
+Sy <- function(x, y) {
+  y * fy(x, y) / f(x, y)
+}
+mu.z.ln <- log(f(mu.x.ln, mu.y.ln))
+d.z.ln <- Sx(mu.x.ln, mu.y.ln) ^ 2 * sigma.x ^ 2 +
+  Sy(mu.x.ln, mu.y.ln) ^ 2 * sigma.y ^ 2
+## log-transform with monte carlo
+mu.z.ln.sim <- mean(log(z.sim))
+d.z.ln.sim <- var(log(z.sim))
+```
+
+这里$$X\sim\mathcal{LN}(`r mu.x`,`r sigma.x^2`)$$，$$Y\sim\mathcal{LN}(`r mu.y`,`r sigma.y^2`)$$，并且$$X$$和$$Y$$互相独立。分别将$$Z$$对$$X$$和$$Y$$求导，可以得到
+
+$$\dfrac{\partial Z}{\partial X}=e^{X}\sin^{2}Y$$
+
+和
+
+$$\dfrac{\partial Z}{\partial Y}=2e^{X}\sin YcosY$$
+
+另外，对于$$X\sim\mathcal{LN}(\mu,\sigma^2)$$，有
+
+$$\mathbb{E}(X)=e^{\mu+\frac{1}{2}\sigma^{2}}$$
+
+和
+
+$$\text{var}(X)=(e^{\sigma^{2}}-1)e^{2\mu+\sigma^{2}}$$
+
+那么有$$\overline{X}=`r round(mu.x.ln, 3)`$$，$$D_{X}=`r round(d.x.ln, 3)`$$，$$\overline{Y}=`r round(mu.y.ln, 3)`$$，$$D_{Y}=`r round(d.y.ln, 3)`$$。则$$Z$$的期望值与方差值的计算结果分别如下
+
+$$\overline{Z}=e^{\overline{X}}\sin^{2}\overline{Y}=
+`r round(mu.z, 3)`$$
+
+和
+
+$$D_{Z}=f_{X}^{\prime}(\overline{X},\overline{Y})^{2}D_{X}+f_{Y}^{\prime}(\overline{X},\overline{Y})^{2}D_{Y}=
+`r round(d.z, 3)`$$
+
+如果采用Monte Carlo随机模拟，估算出的$$\overline{Z}=`r round(mu.z.sim, 3)`$$，$$D_{Z}=`r round(d.z.sim, 3)`$$。
+
+另外，$$\ln Z$$的期望值与方差值的计算结果分别如下
+
+$$\overline{\ln Z}=\ln(e^{\overline{X}}\sin^{2}\overline{Y})=
+`r round(mu.z.ln, 3)`$$
+
+和
+
+$$D_{\ln Z}=S_{X}(\overline{X},\overline{Y})^{2}D_{\ln X}+S_{Y}(\overline{X},\overline{Y})^{2}D_{\ln Y}=
+`r round(d.z.ln, 3)`$$
+
+如果采用Monte Carlo随机模拟，估算出的$$\overline{\ln Z}=`r round(mu.z.ln.sim, 3)`$$，$$D_{\ln Z}=`r round(d.z.ln.sim, 3)`$$。
+
+## 脚注
