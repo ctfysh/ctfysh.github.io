@@ -179,7 +179,7 @@ $$\dfrac{\partial Z}{\partial X}=e^{X}\sin^{2}Y$$
 
 和
 
-$$\dfrac{\partial Z}{\partial Y}=2e^{X}\sin Y\cosY$$
+$$\dfrac{\partial Z}{\partial Y}=2e^{X}\sin Y\cos Y$$
 
 另外，对于$$X\sim\mathcal{LN}(\mu,\sigma^2)$$，有
 
