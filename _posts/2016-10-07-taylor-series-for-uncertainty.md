@@ -50,9 +50,13 @@ $$\begin{align}
 	
 其中
 
-$$g_{\ln X}^{\prime}=\dfrac{\partial\ln Z}{\partial\ln X}=\dfrac{\partial Z}{\partial X}/\dfrac{Z}{X}=S_{X}$$
+$$\begin{align}
+g_{\ln X}^{\prime}(\overline{\ln X},\overline{\ln Y}) & =\left[\dfrac{\partial\ln Z}{\partial\ln X}\right]_{\ln X=\overline{\ln X},\,\ln Y=\overline{\ln Y}}\\
+ & =\left[\dfrac{\partial Z}{Z}/\dfrac{\partial X}{X}\right]_{X=\overline{X},\,Y=\overline{Y}}\\
+ & =S_{X}(\overline{X},\overline{Y})
+\end{align}$$
 
-这里$$S_X$$表示参数$$X$$的相对敏感性系数。根据以上推导可以得到$$\ln Z$$的期望值与方差值分别如下
+这里$$S_X$$表示参数$$X$$的相对敏感性系数(类似于经济学中的弹性系数)[^2]。根据以上推导可以得到$$\ln Z$$的期望值与方差值分别如下
 
 $$\overline{\ln Z}=g(\overline{\ln X},\overline{\ln Y})$$
 
@@ -62,6 +66,8 @@ $$\begin{align}
 D_{\ln Z} & =S_{X}(\overline{X},\overline{Y})^{2}D_{\ln X}+S_{Y}(\overline{X},\overline{Y})^{2}D_{\ln Y}+\nonumber \\
  & 2S_{X}(\overline{X},\overline{Y})S_{Y}(\overline{X},\overline{Y})D_{\ln X\ln Y}
 \end{align}$$
+
+[^2]: 注意这里用到了变量替换的方法。$$g_{\ln X}^{\prime}$$是$$\overline{\ln X}$$和$$\overline{\ln Y}$$的函数，而$$S_{X}$$是$$\overline{X}$$和$$\overline{Y}$$的函数。
 
 ## 2 多个输入变量
 
@@ -131,6 +137,8 @@ $$D_{Z}=f_{X}^{\prime}(\overline{X},\overline{Y})^{2}D_{X}+f_{Y}^{\prime}(\overl
 
 如果采用Monte Carlo随机模拟，估算出的$$\overline{Z}=5.37$$，$$D_{Z}=4.82$$。
 
+![plot of chunk mc_plot](/figure/source/2016-10-07-taylor-series-for-uncertainty/mc_plot-1.png)
+
 另外，$$\ln Z$$的期望值与方差值的计算结果分别如下
 
 $$\overline{\ln Z}=\ln(e^{\overline{X}}\sin^{2}\overline{Y})=
@@ -142,5 +150,7 @@ $$D_{\ln Z}=S_{X}(\overline{X},\overline{Y})^{2}D_{\ln X}+S_{Y}(\overline{X},\ov
 0.117$$
 
 如果采用Monte Carlo随机模拟，估算出的$$\overline{\ln Z}=1.617$$，$$D_{\ln Z}=0.119$$。
+
+![plot of chunk mc_plot_ln](/figure/source/2016-10-07-taylor-series-for-uncertainty/mc_plot_ln-1.png)
 
 ## 脚注
