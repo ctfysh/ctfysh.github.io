@@ -36,6 +36,8 @@ devtools::install_github("ctfysh/sfc")
 
 物质流核算涉及的数据的类型多且量大，同时数据存在着一定的不确定性，所以需要有一种既简单直观又易于被模型所有调用的数据格式，来管理这些数据。表1就是sfc软件包为了物质流核算所设计的一种数据文件格式，以.csv的形式存储，或者直接以数据框(data frame)的形式存在于内存中，供sfc软件包中的`sfc`函数调用。
 
+<!-- more -->
+
 **表1 数据文件**
 ```{r data_table}
 fp <- system.file("extdata", "data_utf8.csv", package = "sfc")

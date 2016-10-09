@@ -19,6 +19,9 @@ gems: [jekyll-paginate]
 # limit posts on Home page to this number:
 paginate: 3
 
+# Read more
+# excerpt_separator:  '<!-- more -->'
+
 # Disqus comments:
 disqus:           false
 shortname:        ctfysh

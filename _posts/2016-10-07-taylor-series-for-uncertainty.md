@@ -37,6 +37,8 @@ $$\overline{Z}=f(\overline{X},\overline{Y})$$
 
 $$D_{Z}=f_{X}^{\prime}(\overline{X},\overline{Y})^{2}D_{X}+f_{Y}^{\prime}(\overline{X},\overline{Y})^{2}D_{Y}+2f_{X}^{\prime}(\overline{X},\overline{Y})f_{Y}^{\prime}(\overline{X},\overline{Y})D_{XY}$$
 
+<!-- more -->
+
 如果我们对$$X$$、$$Y$$和$$Z$$取对数，那么理论上存在
 
 $$\ln Z=g(\ln X,\ln Y)$$
