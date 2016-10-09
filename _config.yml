@@ -13,8 +13,11 @@ author:  Tiger
 baseurl: "/" # the sub-path of your proejct site, e.g. /myProject/
              # or "/" for user site
 
+# Gems
+gems: [jekyll-paginate]
+
 # limit posts on Home page to this number:
-homepostlimit:  4
+paginate: 3
 
 # Disqus comments:
 disqus:           false
