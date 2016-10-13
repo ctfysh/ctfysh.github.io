@@ -1,6 +1,6 @@
 local({
   # fall back on '/' if baseurl is not specified
-  baseurl = servr:::jekyll_config('.', 'baseurl', '/')
+  baseurl = servr:::jekyll_config('.', 'baseurlknitr', '/')
   knitr::opts_knit$set(base.url = baseurl)
   # fall back on 'kramdown' if markdown engine is not specified
   markdown = servr:::jekyll_config('.', 'markdown', 'kramdown')
@@ -29,4 +29,5 @@ local({
   }
   knitr::opts_knit$set(width = 70)
   knitr::knit(a[1], a[2], quiet = TRUE, encoding = 'UTF-8', envir = .GlobalEnv)
+  brocks::htmlwidgets_deps(a, always = TRUE)
 })

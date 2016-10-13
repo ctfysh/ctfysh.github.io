@@ -36,4 +36,11 @@ layout: default
 {% include disqus_comments.html %}
 {% endif %}
 
+{% if site.duoshuo %}
 {% include duoshuo_comments.html %}
+{% endif %}
+
+{% assign dep_file = page.url | split: '/' | last | prepend : 'htmlwidgets/' %}
+{% if page.htmlwidgets %}
+{% include {{dep_file}} %}
+{% endif %}

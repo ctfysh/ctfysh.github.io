@@ -10,8 +10,12 @@ permalink: /:year/:month/:day/:title.html
 # highlighter:  rouge (on my Mac, need to set this to rouge or flas with Jekyll 3.0)
 author:  Tiger
 
-baseurl: "/" # the sub-path of your proejct site, e.g. /myProject/
-             # or "/" for user site
+baseurl: "" # the sub-path of your proejct site, e.g. /myProject/
+            # or "/" for user site
+
+baseurlknitr:  "/" # This will always be your baseurl plus and extra '/'
+                   # at the end.  It's used only when knitr renders
+                   # your R Markdown files.
 
 # Gems
 gems: [jekyll-paginate]
@@ -25,6 +29,9 @@ paginate: 3
 # Disqus comments:
 disqus:           false
 shortname:        ctfysh
+
+# Duoshuo comments:
+duoshuo:          true
 
 # Social Media
 twitter:          false # add a twitter button to each post
