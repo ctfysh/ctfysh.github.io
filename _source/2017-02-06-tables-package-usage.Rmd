@@ -3,7 +3,7 @@ layout: post
 title:  生产复杂表格的R软件包：tables
 date: "`r Sys.time()`"
 published: true
-tags: [R package, Data manipulation]
+categories: [R package, Data manipulation]
 ---
 
 ```{r setup, include=FALSE}
