@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  生产复杂表格的R软件包：tables
-date: "2017-02-06 17:16:02"
-published: true
-tags: [R package, Data manipulation]
+comments:  true
+title:  "生产复杂表格的R软件包：tables"
+date: 2017-02-06
+categories: [R package, Data manipulation]
+published:  true
 ---
 
 
